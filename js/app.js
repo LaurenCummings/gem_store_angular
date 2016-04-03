@@ -8,21 +8,29 @@
 	app.controller('TabController', function() {
 		this.tab = 1;
 
-		this.setTab = function(newValue) {
-			this.tab = newValue;
+		this.setTab = function(checkTab) {
+			this.tab = checkTab;
 		};
 
-		this.isSet = function(tabName) {
-			return this.tab === tabName;
+		this.isSet = function(setTab) {
+			return this.tab === setTab;
 		};
 	});
 
 	app.controller('GalleryController', function(){
 		this.current = 0;
-		this.setCurrent = function(newGallery){
-			this.current = newGallery || 0;
+		this.setCurrent = function(imageNumber){
+			this.current = imageNumber || 0;
 		};
 	});
+
+  app.controller('ReviewController', function(){
+    this.review = {};
+    this.addReview = function(product){
+      product.review.push(this.review);
+      this.review = {};
+    };
+  });
 
 	var gems = [
 		{
